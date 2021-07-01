@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Show Logs</title>
+    {% load static %}
+    {{ form }}
+    <!--<link rel="stylesheet" href="{% static 'ActiveList.js' %}">-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <div class="container-fluid">
+    <body>
+<!--      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--        <div class="container-fluid">-->
+<!--          <a class="navbar-brand" href="http://localhost:8000/">Accoi</a>-->
+<!--          <button-->
+<!--            class="navbar-toggler"-->
+<!--            type="button"-->
+<!--            data-bs-toggle="collapse"-->
+<!--            data-bs-target="#navbarSupportedContent"-->
+<!--            aria-controls="navbarSupportedContent"-->
+<!--            aria-expanded="false"-->
+<!--            aria-label="Toggle navigation"-->
+<!--          >-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--          </button>-->
+<!--          <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--              <li class="nav-item dropdown">-->
+<!--                <a-->
+<!--                  class="nav-link dropdown-toggle"-->
+<!--                  href="#"-->
+<!--                  id="navbarDropdown1"-->
+<!--                  role="button"-->
+<!--                  data-bs-toggle="dropdown"-->
+<!--                  aria-expanded="false"-->
+<!--                >-->
+<!--                  Docs-->
+<!--                </a>-->
+<!--                <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">-->
+<!--                  <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--                  <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--                  <li><hr class="dropdown-divider" /></li>-->
+<!--                  <li>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--              <li class="nav-item dropdown">-->
+<!--                <a-->
+<!--                  class="nav-link dropdown-toggle"-->
+<!--                  href="#"-->
+<!--                  id="navbarDropdown2"-->
+<!--                  role="button"-->
+<!--                  data-bs-toggle="dropdown"-->
+<!--                  aria-expanded="false"-->
+<!--                >-->
+<!--                  Contact-->
+<!--                </a>-->
+<!--                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">-->
+<!--                 -->
+<!--                </ul>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </nav>-->
+
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Accio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Docs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+      <div class="row">
+        <div class="col-8">
+          <form
+            action="progress/"
+            method="post"
+            class="form-group"
+            id="candidate"
+            name="IndexForm"
+            target="_blank"
+          >
+            {% csrf_token %}
+            <h2>Current Run</h2>
+            <hr />
+<!--            URL-->
+            <div class="row mb-3">
+              <label for="URL" class="col-sm-2 col-form-label">URL</label>
+              <div class="col-md-4">
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  id="URL"
+                  name="URL"
+                />
+              </div>
+            </div>
+<!--            IP-->
+            <div class="row mb-3">
+              <label for="IP" class="col-sm-2 col-form-label">IP</label>
+              <div class="col-md-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="IP"
+                  name="IP"
+                />
+              </div>
+            </div>
+
+<!--             Request Headers-->
+              <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Request Headers</label>
+            <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="5"></textarea>
+          </div>
+
+<!--            Fetch Options-->
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="removepunc" />
+              <label class="form-check-label" for="flexSwitchCheckChecked"> DDC/Access Logs </label>
+            </div>
+                <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="fullcaps" />
+              <label class="form-check-label" for="flexSwitchCheckChecked"> Cache Logs </label>
+            </div>
+                <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="newlineremover" />
+              <label class="form-check-label" for="flexSwitchCheckChecked"> Header Logs </label>
+            </div>
+                <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked4" name="extraspaceremover" />
+              <label class="form-check-label" for="flexSwitchCheckChecked"> Metadata Trace </label>
+            <br><br>
+                </div>
+            <button class="btn btn-primary" style="margin-left:-0px" id="SubmitButton" type="submit">
+              Submit
+            </button>
+
+          <hr style="color:#000000 width:50%;text-align:left;margin-left:-40px">
+                  </form>
+          <ul class="nav nav-pills nav-fill bg-dark" >
+          <li class="nav-item" >
+            <a class="nav-link active bg-dark" aria-current="page" href="#" >Machine Info</a>
+          </li>
+            <li class="nav-item" >
+            <a class="nav-link active bg-dark" aria-current="page" href="#" >Curl Output</a>
+          </li>
+            <li class="nav-item" >
+            <a class="nav-link active bg-dark" aria-current="page" href="#" >DDC/Access Logs</a>
+          </li>
+            <li class="nav-item" >
+            <a class="nav-link active bg-dark" aria-current="page" href="#" >Header Logs</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">Much longer nav link</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">Link</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--          </li>-->
+        </ul>
+        </div>
+    </body>
+  </div>
+</html>
